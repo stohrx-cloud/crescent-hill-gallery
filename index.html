@@ -1,0 +1,771 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Crescent Hill Gallery | Original Canadian art in Mississauga since 1985</title>
+<meta name="description" content="5,600 square feet of original Canadian art on Dundas Street West, Mississauga. Now showing: While We Wait, until January 16, 2027. In-home trials, framing and delivery. (905) 820-2233.">
+<meta name="theme-color" content="#f3f3f1" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121617" media="(prefers-color-scheme: dark)">
+<meta property="og:title" content="Crescent Hill Gallery, Mississauga">
+<meta property="og:description" content="While We Wait: new work by twelve Canadian artists, until January 16, 2027.">
+<meta property="og:image" content="assets/hero-braul-park-boulevard.webp">
+<link rel="icon" href="assets/icon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,300..700;1,300..600&family=Geist+Mono:wght@400;500&family=Questrial&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/light/style.css">
+<link rel="preload" as="image" href="assets/hero-braul-park-boulevard.webp" imagesrcset="assets/hero-braul-park-boulevard-800.webp 800w, assets/hero-braul-park-boulevard.webp 1200w" imagesizes="(max-width: 900px) 78vw, 30vw">
+<style>
+/* Palette taken from the gallery itself: white walls, the dark teal-charcoal ceiling,
+   and the gold of their logo frame (used for hairlines only, never for text). */
+:root{
+  --wall:#f3f3f1; --wall-2:#e8e9e6; --wall-lit:#fbfbfa;
+  --ink:#1a1e1f; --ink-2:#575d5f; --line:rgba(26,30,31,.13);
+  --ceiling:#1e2627; --on-ceiling:#eef0ee;
+  --gold:#c49a45;
+  --btn-bg:#1e2627; --btn-fg:#f3f3f1; --btn-hover:#33403f;
+  --shadow:20 26 27;
+  --ease:cubic-bezier(.16,1,.3,1);
+  --gut:max(1rem, 5vw);
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --wall:#121617; --wall-2:#1a2021; --wall-lit:#262b2a;
+    --ink:#ebece8; --ink-2:#a3aaa8; --line:rgba(235,236,232,.14);
+    --ceiling:#0c1011; --on-ceiling:#ebece8;
+    --btn-bg:#ebece8; --btn-fg:#121617; --btn-hover:#ffffff;
+    --shadow:0 0 0;
+    color-scheme:dark;
+  }
+}
+*,*::before,*::after{box-sizing:border-box}
+/* Root size follows the viewport so the layout keeps the same share of the screen at any zoom. */
+html{font-size:max(15px, 1.05vw); scroll-behavior:smooth; -webkit-text-size-adjust:100%}
+section[id]{scroll-margin-top:4.4rem}
+body{margin:0; background:var(--wall); color:var(--ink); font:400 1rem/1.6 "Albert Sans", system-ui, sans-serif; -webkit-font-smoothing:antialiased; overflow-x:hidden}
+img{display:block; max-width:100%; height:auto}
+a{color:inherit; text-decoration-thickness:1px; text-underline-offset:.2em}
+button{font:inherit; color:inherit}
+:focus-visible{outline:2px solid var(--gold); outline-offset:3px}
+.skip{position:absolute; left:-999px; top:0; background:var(--btn-bg); color:var(--btn-fg); padding:.6rem 1rem; z-index:30}
+.skip:focus{left:1rem; top:1rem}
+.sr{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap}
+h1,h2,h3{font-weight:500; letter-spacing:-.03em; line-height:1.05; margin:0; text-wrap:balance}
+h2{font-size:2.9rem}
+h3{font-size:1.3rem; letter-spacing:-.015em; line-height:1.2}
+p{margin:0; text-wrap:pretty}
+.mono{font-family:"Geist Mono", ui-monospace, monospace; font-size:.78rem; letter-spacing:.02em}
+.muted{color:var(--ink-2)}
+
+/* Buttons: square corners everywhere, like the white walls they sit on. */
+.btn{display:inline-flex; align-items:center; gap:.6rem; padding:.85rem 1.35rem; border:1px solid var(--btn-bg); background:var(--btn-bg); color:var(--btn-fg); text-decoration:none; font-weight:500; font-size:.95rem; white-space:nowrap; cursor:pointer; transition:background .25s var(--ease), transform .2s var(--ease)}
+.btn:hover{background:var(--btn-hover); border-color:var(--btn-hover)}
+.btn:active{transform:scale(.98)}
+.btn i{font-size:1.1em; transition:transform .3s var(--ease)}
+.btn:hover i{transform:translateX(.2rem)}
+.btn.ghost{background:transparent; color:var(--ink); border-color:var(--line)}
+.btn.ghost:hover{border-color:var(--ink); background:transparent}
+.link{display:inline-flex; align-items:center; gap:.4rem; font-weight:500; text-decoration:none; border-bottom:1px solid var(--gold); padding-bottom:.15rem}
+.link i{transition:transform .3s var(--ease)}
+.link:hover i{transform:translateX(.2rem)}
+
+/* Header */
+.top{position:sticky; top:0; z-index:20; display:flex; align-items:center; justify-content:space-between; gap:2rem; padding:.9rem var(--gut); background:color-mix(in srgb, var(--wall) 88%, transparent); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border-bottom:1px solid transparent; transition:border-color .3s}
+.top.scrolled{border-bottom-color:var(--line)}
+/* Their wordmark, rebuilt in type so it stays crisp at any size: lowercase, reversed box, gold frame. */
+.mark{display:inline-flex; align-items:stretch; border:2px solid var(--gold); padding:2px; font-family:Questrial, "Century Gothic", sans-serif; font-size:1.3rem; line-height:1; text-decoration:none; white-space:nowrap}
+.mark b{font-weight:400; background:#151515; color:#fff; padding:.16em .28em .24em}
+.mark span{padding:.16em .3em .24em .22em}
+@media (prefers-color-scheme: dark){.mark b{background:#ebece8; color:#121617}}
+.nav{display:flex; align-items:center; gap:2rem}
+.nav ul{display:flex; gap:1.8rem; list-style:none; margin:0; padding:0}
+.nav ul a{text-decoration:none; font-size:.98rem; position:relative; padding:.2rem 0}
+.nav ul a::after{content:""; position:absolute; left:0; right:0; bottom:-.1rem; height:1px; background:var(--gold); transform:scaleX(0); transform-origin:left; transition:transform .35s var(--ease)}
+.nav ul a:hover::after,.nav ul a[aria-current="true"]::after{transform:scaleX(1)}
+.nav .btn{padding:.6rem 1.05rem; font-size:.9rem}
+.menu-btn{display:none; background:none; border:1px solid var(--line); width:2.9rem; height:2.9rem; align-items:center; justify-content:center; font-size:1.4rem; cursor:pointer}
+
+/* Hero: the painting hangs on a lit wall, the copy sits to its left. */
+.hero{position:relative; display:grid; grid-template-columns:minmax(0,5fr) minmax(0,7fr); align-items:center; gap:3vw; min-height:calc(100dvh - 4.6rem); padding:2.5rem var(--gut) 4rem; isolation:isolate}
+/* Track-light pool on the wall. The fine grain dithers the gradient so it never shows rings. */
+.hero::before{content:""; position:absolute; inset:0; z-index:-1; background:var(--grain), radial-gradient(46vw 38vw at 68% 6%, var(--wall-lit) 0%, color-mix(in srgb, var(--wall-lit) 55%, transparent) 38%, transparent 72%)}
+:root{--grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .5 0 0 0 0 .5 0 0 0 0 .5 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.hero-copy{max-width:34rem}
+.eyebrow{display:inline-block; font-size:.76rem; font-weight:500; text-transform:uppercase; letter-spacing:.16em; color:var(--ink-2); margin-bottom:1.4rem}
+.hero h1{font-size:5.4rem; letter-spacing:-.045em; line-height:1}
+.hero-sub{margin-top:1.5rem; font-size:1.18rem; line-height:1.55; color:var(--ink-2); max-width:27rem}
+.hero-ctas{display:flex; flex-wrap:wrap; gap:.8rem; margin-top:2.2rem}
+.hang-hero{display:flex; align-items:flex-end; justify-content:center; gap:2vw}
+.canvas{position:relative; box-shadow:0 1.4vw 2.6vw -1.2vw rgb(var(--shadow) / .45), 0 .15vw .3vw rgb(var(--shadow) / .18)}
+.hero .canvas{width:29vw}
+.hero .canvas img{width:100%; aspect-ratio:30/40; object-fit:cover}
+.wall-label{width:11rem; padding-bottom:1vw; font-size:.85rem; line-height:1.45; color:var(--ink-2)}
+.wall-label strong{display:block; color:var(--ink); font-weight:500; font-size:.92rem}
+.wall-label em{display:block; color:var(--ink)}
+
+/* Load: the gallery lights come up, then the work appears. */
+@media (prefers-reduced-motion: no-preference){
+  .hero::before{animation:lights 1.8s var(--ease) both}
+  .hero .canvas{animation:hang 1.4s .25s var(--ease) both}
+  .hero-copy > *{animation:rise 1s var(--ease) both}
+  .hero-copy > :nth-child(2){animation-delay:.08s}
+  .hero-copy > :nth-child(3){animation-delay:.16s}
+  .hero-copy > :nth-child(4){animation-delay:.24s}
+  .wall-label{animation:rise 1s .7s var(--ease) both}
+  .js .reveal{opacity:0; transform:translateY(14px); transition:opacity .9s var(--ease), transform .9s var(--ease)}
+  .js .reveal.in{opacity:1; transform:none}
+}
+@keyframes lights{from{opacity:0}to{opacity:1}}
+@keyframes hang{from{opacity:0; transform:translateY(10px)}to{opacity:1; transform:none}}
+@keyframes rise{from{opacity:0; transform:translateY(12px)}to{opacity:1; transform:none}}
+
+/* Exhibition statement */
+.show{padding:7rem var(--gut) 0}
+.show-grid{display:grid; grid-template-columns:repeat(12,minmax(0,1fr)); gap:2rem 3vw}
+.show blockquote{grid-column:1 / span 10; margin:0; font-size:3.4rem; font-weight:400; letter-spacing:-.035em; line-height:1.08; text-wrap:balance}
+.show blockquote::before{content:""; display:block; width:3.5rem; height:1px; background:var(--gold); margin-bottom:2.2rem}
+.show-body{grid-column:5 / span 5; display:grid; gap:1.2rem; font-size:1.06rem}
+.show-dates{grid-column:10 / span 3; align-self:start; display:grid; gap:.25rem; padding-top:.3rem}
+.show-dates .mono{color:var(--ink-2)}
+.show-artists{grid-column:5 / span 8; margin-top:1.5rem}
+.show-artists h3{font-size:.95rem; font-weight:500; letter-spacing:0; margin-bottom:.9rem}
+.show-artists ul{list-style:none; margin:0; padding:0; columns:3; column-gap:2rem}
+.show-artists li{padding:.25rem 0; break-inside:avoid}
+.show-artists a{text-decoration:none; border-bottom:1px solid transparent; transition:border-color .25s}
+.show-artists a:hover{border-bottom-color:var(--gold)}
+.detail{margin-top:6rem}
+.detail img{width:100%; aspect-ratio:2/1; object-fit:cover}
+.detail figcaption{padding:.9rem 0 0; font-size:.85rem; color:var(--ink-2)}
+.detail figcaption em{color:var(--ink)}
+
+/* New work, hung to scale. --in is the size of one inch on screen. */
+.new{padding:8rem 0 0}
+.new-head{padding:0 var(--gut); display:grid; gap:1.1rem; max-width:none}
+.new-head p{max-width:40rem; font-size:1.06rem; color:var(--ink-2)}
+.new-tools{display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1rem; padding:2.2rem var(--gut) 1.4rem}
+.chips{display:flex; flex-wrap:wrap; gap:.45rem}
+.chip{border:1px solid var(--line); background:transparent; padding:.42rem .85rem; font-size:.86rem; cursor:pointer; transition:border-color .2s, background .2s}
+.chip:hover{border-color:var(--ink)}
+.chip[aria-pressed="true"]{background:var(--btn-bg); color:var(--btn-fg); border-color:var(--btn-bg)}
+.arrows{display:flex; align-items:center; gap:.45rem}
+.arrows .count{margin-right:.6rem; color:var(--ink-2)}
+.arrow{width:2.8rem; height:2.8rem; display:grid; place-items:center; border:1px solid var(--line); background:transparent; font-size:1.15rem; cursor:pointer; transition:border-color .2s, opacity .2s}
+.arrow:hover{border-color:var(--ink)}
+.arrow:disabled{opacity:.3; cursor:default; border-color:var(--line)}
+.wall{--in:.48vw; position:relative; overflow-x:auto; overscroll-behavior-x:contain; scrollbar-width:thin; background:var(--wall-2); border-bottom:.7vw solid var(--wall)}
+.wall::after{content:""; position:sticky; display:block; left:0; bottom:0; height:1px; background:var(--line)}
+.hang{display:flex; align-items:center; gap:calc(16 * var(--in)); width:max-content; list-style:none; margin:0; padding:calc(9 * var(--in)) var(--gut) calc(9 * var(--in) + 5.4rem); min-height:calc(48 * var(--in) + 18 * var(--in) + 5.4rem)}
+.hang li{position:relative; flex:none}
+.hang li[hidden]{display:none}
+.piece{display:block; padding:0; border:0; background:none; cursor:zoom-in; width:calc(var(--w) * var(--in)); aspect-ratio:var(--w) / var(--h); box-shadow:0 1vw 1.8vw -1vw rgb(var(--shadow) / .4), 0 .1vw .2vw rgb(var(--shadow) / .14); transition:transform .5s var(--ease), box-shadow .5s var(--ease)}
+.piece img{width:100%; height:100%; object-fit:cover; background:var(--wall)}
+.piece:hover{transform:translateY(-.35vw); box-shadow:0 2vw 3vw -1.4vw rgb(var(--shadow) / .5), 0 .2vw .4vw rgb(var(--shadow) / .15)}
+.hang .label{position:absolute; top:calc(100% + 1.1rem); left:0; width:max(100%, 11rem); font-size:.8rem; line-height:1.4; color:var(--ink-2)}
+.hang .label em{display:block; color:var(--ink); font-size:.86rem}
+.scale-key{align-self:center; display:grid; gap:.5rem; justify-items:start}
+.scale-key span:first-child{display:block; width:calc(12 * var(--in)); height:calc(12 * var(--in)); border:1px dashed color-mix(in srgb, var(--ink) 45%, transparent)}
+.scale-key .mono{color:var(--ink-2)}
+
+/* Artists index */
+.artists{padding:8rem var(--gut) 0}
+.artists-head{display:grid; gap:1rem; margin-bottom:3rem}
+.artists-head p{max-width:38rem; color:var(--ink-2); font-size:1.06rem}
+.index{columns:4; column-gap:3vw; font-size:1.02rem}
+.group{break-inside:avoid; display:grid; grid-template-columns:2.2rem 1fr; padding:.9rem 0; border-top:1px solid var(--line)}
+.group .letter{font-family:"Geist Mono", monospace; font-size:.8rem; color:var(--ink-2); padding-top:.2rem}
+.group ul{list-style:none; margin:0; padding:0}
+.group li{padding:.12rem 0}
+.group a{text-decoration:none; transition:color .2s}
+.index:hover .group a{color:var(--ink-2)}
+.index .group a:hover,.index .group a:focus-visible{color:var(--ink)}
+.group a.showing{border-bottom:1px solid var(--gold)}
+.index-note{margin-top:1.6rem; font-size:.85rem; color:var(--ink-2)}
+.index-note span{border-bottom:1px solid var(--gold); color:var(--ink)}
+.peek{position:fixed; left:0; top:0; z-index:15; width:13rem; aspect-ratio:1; object-fit:cover; pointer-events:none; opacity:0; transform:translate3d(-50%,-50%,0) scale(.94); transition:opacity .25s var(--ease), transform .35s var(--ease); box-shadow:0 1.5rem 3rem -1.5rem rgb(var(--shadow) / .55)}
+.peek.on{opacity:1}
+
+/* Services: an uneven grid, one cell per service. */
+.services{padding:8rem var(--gut) 0}
+.services-head{display:grid; gap:1rem; margin-bottom:3rem; max-width:44rem}
+.services-head p{color:var(--ink-2); font-size:1.06rem}
+.bento{display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); gap:1px; background:var(--line); border:1px solid var(--line)}
+.cell{background:var(--wall); padding:2.2rem; display:flex; flex-direction:column; gap:.8rem}
+.cell p{color:var(--ink-2); max-width:34rem}
+.cell h3 + p{margin-top:.1rem}
+.cell-trial{grid-column:1 / span 4; grid-row:span 2; padding:0}
+.cell-trial img{width:100%; aspect-ratio:16/8.4; object-fit:cover}
+.cell-trial .cell-text{padding:2.2rem; display:grid; gap:.8rem}
+.cell-trial h3{font-size:2rem; letter-spacing:-.03em}
+.cell-virtual{grid-column:5 / span 2; background:var(--wall-2)}
+.cell-frame{grid-column:5 / span 2}
+.cell-advice{grid-column:1 / span 3; flex-direction:row; gap:1.8rem; align-items:flex-start}
+.cell-advice img{width:9rem; aspect-ratio:1; object-fit:cover; flex:none}
+.cell-advice div{display:grid; gap:.8rem}
+.cell-ship{grid-column:4 / span 3; background:var(--ceiling); color:var(--on-ceiling)}
+.cell-ship p{color:color-mix(in srgb, var(--on-ceiling) 72%, transparent)}
+.cell-ship .also{margin-top:auto; padding-top:1.2rem; border-top:1px solid color-mix(in srgb, var(--on-ceiling) 18%, transparent); font-size:.9rem}
+.cell .link{margin-top:auto; align-self:flex-start}
+.cell-trial .link{margin-top:.6rem; justify-self:start}
+
+/* Visit */
+.visit{padding:8rem 0 0}
+.panorama img{width:100%; aspect-ratio:2000/679; object-fit:cover}
+.panorama figcaption{padding:.9rem var(--gut) 0; font-size:.85rem; color:var(--ink-2)}
+.visit-grid{display:grid; grid-template-columns:minmax(0,5fr) minmax(0,7fr); gap:4vw; padding:4.5rem var(--gut) 0; align-items:start}
+.visit-info{display:grid; gap:2.2rem}
+.status{display:inline-flex; align-items:center; gap:.55rem; font-weight:500}
+.status::before{content:""; width:.55rem; height:.55rem; border-radius:50%; background:var(--ink-2)}
+.status.open::before{background:#3f8a5a}
+.hours{display:grid; grid-template-columns:auto 1fr; gap:.45rem 2rem; margin:0}
+.hours dt,.hours dd{margin:0; padding:.1rem 0}
+.hours .today{font-weight:600}
+.hours dd{font-variant-numeric:tabular-nums}
+.addr{font-style:normal; display:grid; gap:.2rem}
+.contact-lines{display:grid; gap:.35rem}
+.contact-lines a{text-decoration:none}
+.contact-lines a:hover{text-decoration:underline}
+.small{font-size:.88rem; color:var(--ink-2)}
+.visit-ctas{display:flex; flex-wrap:wrap; gap:.8rem}
+.map{position:relative; width:100%; aspect-ratio:7/6; border:0; filter:grayscale(1) contrast(.95); transition:filter .5s var(--ease); background:var(--wall-2)}
+.map:hover{filter:none}
+@media (prefers-color-scheme: dark){.map{filter:grayscale(1) invert(.9) hue-rotate(180deg) contrast(.9)} .map:hover{filter:invert(.9) hue-rotate(180deg)}}
+
+/* Footer */
+.foot{margin-top:8rem; padding:4.5rem var(--gut) 2.5rem; border-top:1px solid var(--line)}
+.foot-grid{display:grid; grid-template-columns:minmax(0,6fr) minmax(0,5fr); gap:4rem 6vw}
+.signup h2{font-size:2.2rem}
+.signup > p{margin-top:.9rem; color:var(--ink-2); max-width:30rem}
+.form{display:grid; grid-template-columns:1fr 1.4fr auto; gap:1rem; align-items:end; margin-top:2rem}
+.field{display:grid; gap:.4rem}
+.field label{font-size:.85rem; font-weight:500}
+.field input{font:inherit; color:var(--ink); background:transparent; border:0; border-bottom:1px solid color-mix(in srgb, var(--ink) 45%, transparent); padding:.6rem 0; border-radius:0}
+.field input:focus{outline:none; border-bottom-color:var(--gold); box-shadow:0 1px 0 var(--gold)}
+.field input[aria-invalid="true"]{border-bottom-color:#b3261e}
+.form-msg{grid-column:1 / -1; font-size:.88rem; min-height:1.4em}
+.form-msg.err{color:#b3261e}
+@media (prefers-color-scheme: dark){.form-msg.err{color:#ff9a8f} .field input[aria-invalid="true"]{border-bottom-color:#ff9a8f}}
+.foot-side{display:grid; gap:1.6rem; align-content:start}
+.land{font-size:.88rem; color:var(--ink-2); max-width:34rem}
+.social{display:flex; gap:.5rem}
+.social a{width:2.6rem; height:2.6rem; display:grid; place-items:center; border:1px solid var(--line); font-size:1.2rem; text-decoration:none; transition:border-color .2s}
+.social a:hover{border-color:var(--ink)}
+.foot-base{display:flex; flex-wrap:wrap; justify-content:space-between; gap:1rem; margin-top:4rem; padding-top:1.4rem; border-top:1px solid var(--line); font-size:.84rem; color:var(--ink-2)}
+
+/* Artwork details */
+dialog.work{width:min(92vw, 78rem); max-height:92dvh; padding:0; border:0; background:var(--wall); color:var(--ink); box-shadow:0 2rem 5rem -2rem rgb(0 0 0 / .5)}
+dialog.work::backdrop{background:rgb(12 16 17 / .72); backdrop-filter:blur(4px)}
+.work-grid{display:grid; grid-template-columns:minmax(0,1.6fr) minmax(0,1fr); min-height:0}
+.work-art{background:var(--wall-2); display:grid; place-items:center; padding:3vw; min-height:0}
+.work-art img{max-height:calc(92dvh - 6vw); width:auto; max-width:100%; object-fit:contain; box-shadow:0 1.2vw 2.4vw -1vw rgb(var(--shadow) / .45)}
+.work-info{padding:2.6rem 2.4rem; display:flex; flex-direction:column; gap:1.1rem; overflow:auto}
+.work-info h3{font-size:2rem; font-style:italic; font-weight:400; letter-spacing:-.025em; line-height:1.12; padding-bottom:.1em}
+.work-meta{display:grid; grid-template-columns:auto 1fr; gap:.4rem 1.4rem; margin:.4rem 0 0; font-size:.95rem}
+.work-meta dt{color:var(--ink-2)}
+.work-meta dd{margin:0}
+.work-actions{display:grid; gap:.6rem; margin-top:auto; padding-top:1.4rem}
+.work-actions .btn{justify-content:center}
+.close{position:absolute; top:.8rem; right:.8rem; width:2.6rem; height:2.6rem; display:grid; place-items:center; border:1px solid var(--line); background:var(--wall); font-size:1.2rem; cursor:pointer; z-index:1}
+.close:hover{border-color:var(--ink)}
+
+/* Tablet and phone: every multi-column layout collapses to one column. */
+@media (max-width: 1100px){
+  .nav ul{gap:1.3rem}
+  .index{columns:3}
+}
+@media (max-width: 900px){
+  h2{font-size:2.15rem}
+  .menu-btn{display:inline-flex}
+  .nav{position:fixed; inset:4.6rem 0 auto 0; flex-direction:column; align-items:stretch; gap:0; padding:1rem var(--gut) 2rem; background:var(--wall); border-bottom:1px solid var(--line); transform:translateY(-.5rem); opacity:0; visibility:hidden; transition:opacity .3s var(--ease), transform .3s var(--ease), visibility 0s .3s}
+  .nav.open{opacity:1; transform:none; visibility:visible; transition:opacity .3s var(--ease), transform .3s var(--ease)}
+  .nav ul{flex-direction:column; gap:0}
+  .nav ul a{display:block; padding:.95rem 0; font-size:1.25rem; border-bottom:1px solid var(--line)}
+  .nav ul a::after{display:none}
+  .nav .btn{margin-top:1.4rem; justify-content:center; padding:.9rem}
+  .hero{grid-template-columns:1fr; min-height:auto; padding:2rem var(--gut) 3.5rem; gap:2.6rem}
+  .hero::before{background:radial-gradient(90vw 80vw at 50% 62%, var(--wall-lit), transparent 70%)}
+  .hero h1{font-size:3.3rem}
+  .hero-sub{font-size:1.06rem}
+  .hang-hero{flex-direction:column; align-items:center; gap:1.2rem}
+  .hero .canvas{width:72vw}
+  .wall-label{width:72vw; padding:0}
+  .show{padding-top:5rem}
+  .show-grid{grid-template-columns:1fr; gap:1.6rem}
+  .show blockquote,.show-body,.show-dates,.show-artists{grid-column:1 / -1}
+  .show blockquote{font-size:2.15rem}
+  .show-artists ul{columns:2}
+  .detail{margin-top:3.5rem}
+  .detail img{aspect-ratio:4/3}
+  .new,.artists,.services,.visit{padding-top:5.5rem}
+  .wall{--in:1.45vw}
+  .hang{min-height:calc(48 * var(--in) + 12 * var(--in) + 5.4rem); padding-top:calc(6 * var(--in)); padding-bottom:calc(6 * var(--in) + 5.4rem)}
+  .new-tools{flex-direction:column; flex-wrap:nowrap; align-items:stretch}
+  .chips{min-width:0}
+  .chips{flex-wrap:nowrap; overflow-x:auto; margin:0 calc(-1 * var(--gut)); padding:0 var(--gut) .2rem; scrollbar-width:none}
+  .chip{flex:none}
+  .arrows{justify-content:space-between}
+  .index{columns:2; column-gap:1.5rem; font-size:.98rem}
+  .group{grid-template-columns:1.6rem 1fr}
+  .bento{grid-template-columns:1fr}
+  .cell,.cell-trial,.cell-virtual,.cell-frame,.cell-advice,.cell-ship{grid-column:1 / -1; grid-row:auto}
+  .cell{padding:1.6rem}
+  .cell.cell-trial{padding:0}
+  .cell-trial .cell-text{padding:1.6rem}
+  .cell-trial h3{font-size:1.6rem}
+  .cell-trial img{aspect-ratio:4/3}
+  .cell-advice{flex-direction:column}
+  .cell-advice img{width:100%; aspect-ratio:16/9}
+  .visit-grid{grid-template-columns:1fr; padding-top:3rem; gap:3rem}
+  .panorama img{aspect-ratio:16/9}
+  .map{aspect-ratio:4/3.4}
+  .foot{margin-top:5.5rem}
+  .foot-grid{grid-template-columns:1fr}
+  .form{grid-template-columns:1fr}
+  .form .btn{justify-content:center}
+  .work-grid{grid-template-columns:1fr}
+  .work-art{padding:5vw; padding-top:4rem}
+  .work-art img{max-height:52dvh}
+  .work-info{padding:1.6rem}
+}
+@media (min-width: 600px) and (max-width: 900px){
+  .wall{--in:.95vw}
+  .hero .canvas,.wall-label{width:54vw}
+}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition-duration:.01ms !important; animation:none !important}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="top" id="top">
+  <a class="mark" href="#top" aria-label="Crescent Hill Gallery, home"><b>crescent hill</b><span>gallery</span></a>
+  <button class="menu-btn" aria-expanded="false" aria-controls="nav" aria-label="Open menu"><i class="ph-light ph-list" aria-hidden="true"></i></button>
+  <nav class="nav" id="nav" aria-label="Main">
+    <ul>
+      <li><a href="#exhibition">exhibition</a></li>
+      <li><a href="#new-work">new work</a></li>
+      <li><a href="#artists">artists</a></li>
+      <li><a href="#services">services</a></li>
+      <li><a href="#visit">visit</a></li>
+    </ul>
+    <a class="btn" href="#visit">Plan your visit</a>
+  </nav>
+</header>
+
+<main id="main">
+
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-copy">
+      <span class="eyebrow">Fall exhibition, on now</span>
+      <h1 id="hero-title">While We Wait</h1>
+      <p class="hero-sub">New work by twelve Canadian artists about the moments that usually pass us by. On our walls until January&nbsp;16.</p>
+      <div class="hero-ctas">
+        <a class="btn" href="#visit">Plan your visit <i class="ph-light ph-arrow-right" aria-hidden="true"></i></a>
+        <a class="btn ghost" href="#new-work">See the new work</a>
+      </div>
+    </div>
+    <div class="hang-hero">
+      <figure class="canvas" style="margin:0">
+        <img src="assets/hero-braul-park-boulevard.webp" srcset="assets/hero-braul-park-boulevard-800.webp 800w, assets/hero-braul-park-boulevard.webp 1200w" sizes="(max-width: 900px) 72vw, 29vw" width="1200" height="1600" alt="Harold Braul's Park Boulevard Series: a rain-slicked path between bare trees, figures with red umbrellas walking away into grey light." fetchpriority="high">
+      </figure>
+      <p class="wall-label"><strong>Harold Braul</strong><em>Park Boulevard Series</em>Oil on canvas<br>40 × 30 in.</p>
+    </div>
+  </section>
+
+  <section class="show" id="exhibition" aria-labelledby="show-title">
+    <h2 class="sr" id="show-title">While We Wait, fall 2026</h2>
+    <div class="show-grid">
+      <blockquote class="reveal">Life does not only happen on the days we circle on the calendar.</blockquote>
+      <div class="show-body reveal">
+        <p>There is always something we are waiting for: the weekend, a holiday, a celebration. Our fall show gathers new work about what is already around us. The sheen of a surface, sun through bare branches, a colour that catches your eye on a route you know by heart.</p>
+        <p class="muted">Every piece in the exhibition is new to the gallery. Come and take a closer look at what might usually pass you by.</p>
+      </div>
+      <div class="show-dates reveal">
+        <span class="mono">On view</span>
+        <span>Nov 13, 2026 to Jan 16, 2027</span>
+        <span class="mono" style="margin-top:.9rem">Admission</span>
+        <span>Free, during gallery hours</span>
+      </div>
+      <div class="show-artists reveal">
+        <h3>In the show</h3>
+        <ul>
+          <li><a href="https://www.crescenthill.com/artists/de-rose/">Tim De Rose</a></li>
+          <li><a href="https://www.crescenthill.com/artists/ostlund/">Leif Ostlund</a></li>
+          <li><a href="https://www.crescenthill.com/artists/eventov/">Maya Eventov</a></li>
+          <li><a href="https://www.crescenthill.com/artists/munn/">Lee Munn</a></li>
+          <li><a href="https://www.crescenthill.com/artists/boucher/">Marie-Claude Boucher</a></li>
+          <li><a href="https://www.crescenthill.com/artists/braul/">Harold Braul</a></li>
+          <li><a href="https://www.crescenthill.com/artists/adamo/">Pietro Adamo</a></li>
+          <li><a href="https://www.crescenthill.com/artists/pasagic/">Emilija Pasagic</a></li>
+          <li><a href="https://www.crescenthill.com/artists/bingham/">Meredith Bingham</a></li>
+          <li><a href="https://www.crescenthill.com/artists/nemo/">Victor "Nemo" Colesnicenco</a></li>
+          <li><a href="https://www.crescenthill.com/artists/gurevich/">Eduard Gurevich</a></li>
+          <li><a href="https://www.crescenthill.com/artists/capolongo/">Bruno Capolongo</a></li>
+        </ul>
+      </div>
+    </div>
+    <figure class="detail reveal" style="margin-left:0;margin-right:0">
+      <img src="assets/ostlund-water-lily-detail.webp" width="1500" height="750" loading="lazy" alt="Detail of Leif Ostlund's Water Lily: a figure in a red top leans over dark blue water among white lilies.">
+      <figcaption>Leif Ostlund, <em>Water Lily</em> (detail). Oil on canvas, 30 × 48 in.</figcaption>
+    </figure>
+  </section>
+
+  <section class="new" id="new-work" aria-labelledby="new-title">
+    <div class="new-head reveal">
+      <h2 id="new-title">New this month, hung to scale</h2>
+      <p>Every canvas on this wall is drawn at the same scale and centred on one line, the way we hang them in the gallery. A 72-inch landscape really is six times the width of a 12-inch panel. Choose any piece for its details.</p>
+    </div>
+    <div class="new-tools">
+      <div class="chips" role="group" aria-label="Filter by artist" id="chips"></div>
+      <div class="arrows">
+        <span class="count mono" id="count" aria-live="polite"></span>
+        <button class="arrow" id="prev" aria-label="Scroll the wall left"><i class="ph-light ph-arrow-left" aria-hidden="true"></i></button>
+        <button class="arrow" id="next" aria-label="Scroll the wall right"><i class="ph-light ph-arrow-right" aria-hidden="true"></i></button>
+      </div>
+    </div>
+    <div class="wall" id="wall" tabindex="0" role="region" aria-label="New work, shown to scale. Scroll sideways to see more.">
+      <ul class="hang" id="hang">
+        <li class="scale-key" aria-hidden="true"><span></span><span class="mono">12 × 12 in.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="artists" id="artists" aria-labelledby="artists-title">
+    <div class="artists-head reveal">
+      <h2 id="artists-title">Eighty artists on our walls</h2>
+      <p>Mid-career and established painters and sculptors from across Canada. Open any name to see all of their work with us.</p>
+    </div>
+    <div class="index" id="index"></div>
+    <p class="index-note"><span>Underlined</span> artists have new work in While We Wait.</p>
+    <img class="peek" id="peek" alt="" aria-hidden="true">
+  </section>
+
+  <section class="services" id="services" aria-labelledby="services-title">
+    <div class="services-head reveal">
+      <h2 id="services-title">Live with it before you decide</h2>
+      <p>Buying art is a matter of the heart, and it should feel right on your wall, not just on ours. These are the ways we help.</p>
+    </div>
+    <div class="bento reveal">
+      <article class="cell cell-trial">
+        <img src="assets/gallery-room.webp" width="1600" height="900" loading="lazy" alt="A corner of the gallery: a large autumn lake painting in a black frame, a smaller leaf study, two windswept pine sculptures on plinths and a black bench.">
+        <div class="cell-text">
+          <h3>Take it home for a few days</h3>
+          <p>Our walls are white and lit to flatter the work. Yours are not. Local clients can borrow a piece and see it in their own light, at their own scale, before deciding. Sometimes you love it more. Sometimes it is too dark or too small, and we find the right one together.</p>
+          <a class="link" href="mailto:info@crescenthill.com?subject=In-home%20trial">Ask about a trial <i class="ph-light ph-arrow-right" aria-hidden="true"></i></a>
+        </div>
+      </article>
+      <article class="cell cell-virtual">
+        <h3>See it on your wall first</h3>
+        <p>Send us a landscape photo of your room and the width of the wall. We will place any painting or wall sculpture into it, in proportion.</p>
+      </article>
+      <article class="cell cell-frame">
+        <h3>Award-winning framing</h3>
+        <p>Five moulding suppliers and framers who will stretch, mount or fully frame a work, whether you bought it here or not.</p>
+      </article>
+      <article class="cell cell-advice">
+        <img src="assets/art-194633-sm.webp" width="720" height="720" loading="lazy" alt="Craig Mainprize's At One With the Wind: windswept pines against a pale blue sky with white clouds.">
+        <div>
+          <h3>Advice at home or at the office</h3>
+          <p>We come to you, ask what you like and what you don't, and search thousands of works for the ones that fit the room. Residential, corporate and interior designers welcome.</p>
+        </div>
+      </article>
+      <article class="cell cell-ship">
+        <h3>Delivered, hung, or shipped anywhere</h3>
+        <p>We deliver and install locally, and our shipping is built for original art travelling to collectors worldwide.</p>
+        <p class="also">Also: commissions from our artists, art rental, restoration, and the gallery as a venue for your event.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="visit" id="visit" aria-labelledby="visit-title">
+    <figure class="panorama reveal" style="margin:0">
+      <img src="assets/gallery-panorama.webp" width="2000" height="679" loading="lazy" alt="Panoramic view inside Crescent Hill Gallery: white walls hung with paintings on both sides, sculpture on plinths, wood floors and a dark ceiling with track lighting.">
+      <figcaption>5,600 square feet of original art, on Dundas Street West since 1985.</figcaption>
+    </figure>
+    <div class="visit-grid">
+      <div class="visit-info reveal">
+        <div style="display:grid;gap:1rem">
+          <h2 id="visit-title">Come see it in person</h2>
+          <p class="status" id="status">Mon to Fri 10am to 6pm, Sat 10am to 5pm</p>
+        </div>
+        <dl class="hours" id="hours">
+          <dt data-days="1,2,3,4,5">Monday to Friday</dt><dd data-days="1,2,3,4,5">10am to 6pm</dd>
+          <dt data-days="6">Saturday</dt><dd data-days="6">10am to 5pm</dd>
+          <dt data-days="0">Sunday</dt><dd data-days="0">Closed</dd>
+        </dl>
+        <p class="small">Closed statutory holidays, and December 24, 25, 26, 31 and January 1. Regular hours resume January 2.</p>
+        <address class="addr">
+          <span>2575 Dundas Street West, Unit 10</span>
+          <span>Mississauga, ON L5K 2M6</span>
+          <span class="small" style="margin-top:.4rem">Free parking. Step-free entrance throughout the gallery; the washroom is not fully accessible.</span>
+        </address>
+        <div class="contact-lines">
+          <a href="tel:+19058202233">(905) 820-2233</a>
+          <a href="tel:+18662886088">1-866-288-6088 <span class="small">toll-free in North America</span></a>
+          <a href="mailto:info@crescenthill.com">info@crescenthill.com</a>
+        </div>
+        <div class="visit-ctas">
+          <a class="btn" href="https://www.google.com/maps/dir/?api=1&destination=Crescent+Hill+Gallery+2575+Dundas+St+W+Unit+10+Mississauga+ON+L5K+2M6">Get directions <i class="ph-light ph-arrow-up-right" aria-hidden="true"></i></a>
+          <a class="btn ghost" href="tel:+19058202233">Call the gallery</a>
+        </div>
+      </div>
+      <iframe class="map reveal" title="Map showing Crescent Hill Gallery at 2575 Dundas Street West, Mississauga" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Crescent%20Hill%20Gallery%2C%202575%20Dundas%20St%20W%2C%20Mississauga%2C%20ON%20L5K%202M6&z=15&output=embed"></iframe>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="foot-grid">
+    <div class="signup">
+      <h2>New work, first</h2>
+      <p>Join our list for new arrivals fresh off the easel and invitations to opening nights. A few emails a season.</p>
+      <form class="form" id="signup" novalidate>
+        <div class="field">
+          <label for="fname">First name</label>
+          <input id="fname" name="fname" autocomplete="given-name">
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" autocomplete="email" required aria-describedby="form-msg">
+        </div>
+        <button class="btn" type="submit">Join the list</button>
+        <p class="form-msg" id="form-msg" role="status"></p>
+      </form>
+    </div>
+    <div class="foot-side">
+      <a class="mark" href="#top" aria-label="Crescent Hill Gallery, back to top" style="justify-self:start"><b>crescent hill</b><span>gallery</span></a>
+      <p class="land">Crescent Hill Gallery operates on the present-day territory of the Mississaugas of the Credit First Nation and the traditional homeland of the Wendat, Anishinaabe and Haudenosaunee nations. Indigenous artists are warmly invited to submit their portfolios.</p>
+      <div class="social">
+        <a href="https://www.instagram.com/crescenthill.gallery/" aria-label="Instagram"><i class="ph-light ph-instagram-logo" aria-hidden="true"></i></a>
+        <a href="https://www.facebook.com/CrescentHillArt" aria-label="Facebook"><i class="ph-light ph-facebook-logo" aria-hidden="true"></i></a>
+        <a href="http://pinterest.com/crescenthill/" aria-label="Pinterest"><i class="ph-light ph-pinterest-logo" aria-hidden="true"></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="foot-base">
+    <span>© 2026 Crescent Hill Gallery. Original Canadian art since 1985.</span>
+    <span><a href="https://www.crescenthill.com/submissions/">Artist submissions</a></span>
+  </div>
+</footer>
+
+<dialog class="work" id="work" aria-labelledby="work-title">
+  <button class="close" id="work-close" aria-label="Close"><i class="ph-light ph-x" aria-hidden="true"></i></button>
+  <div class="work-grid">
+    <div class="work-art"><img id="work-img" alt=""></div>
+    <div class="work-info">
+      <h3 id="work-title"></h3>
+      <a id="work-artist" class="link" style="align-self:flex-start"></a>
+      <dl class="work-meta">
+        <dt>Medium</dt><dd id="work-medium"></dd>
+        <dt>Size</dt><dd id="work-size"></dd>
+        <dt>ID</dt><dd id="work-id" class="mono"></dd>
+      </dl>
+      <p class="small">Prices on request. Ask us about trying it at home first.</p>
+      <div class="work-actions">
+        <a class="btn" id="work-price">Request pricing</a>
+        <a class="btn ghost" id="work-trial">Ask about a trial</a>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<script>
+document.documentElement.classList.add('js');
+
+/* New arrivals from crescenthill.com. Sizes are height × width in inches, as the gallery lists them. */
+const works = [
+  [194616,'Ochre Sky','de-rose','Acrylic on canvas',40,60],
+  [194590,'Untitled','pasagic','Mixed media on canvas',48,12],
+  [194397,'Abstract Dancers (Butterflies)','eventov','Acrylic on canvas',48,30],
+  [194609,'Peloton Series','braul','Oil on canvas',30,60],
+  [194633,'At One With the Wind','mainprize','Oil on canvas',36,36],
+  [194611,'The Byrds, One Night Only','nemo','Mixed media on canvas',36,48],
+  [194580,'Looking Up (Blue)','eventov','Acrylic on canvas',30,24],
+  [194416,'CCTV Series','braul','Oil on canvas',48,30],
+  [194615,'Playground Park Tree','de-rose','Acrylic on canvas',40,40],
+  [194561,'Floral (White Poppies)','eventov','Acrylic on canvas',30,72],
+  [194631,'Ever Changing Island','mainprize','Oil on canvas',48,36],
+  [194614,'Toronto Islands Ferry','nemo','Mixed media on canvas',40,40],
+  [194591,'Untitled','pasagic','Mixed media on canvas',48,12],
+  [194571,'Floral, Hydrangea with Vase','eventov','Acrylic on canvas',20,20],
+  [194610,'Tuscany Morning','nemo','Mixed media on canvas',36,72],
+  [194593,'Coffee Shop Series','braul','Oil on canvas',36,18],
+  [194618,'Totems','de-rose','Acrylic on canvas',40,40],
+  [194585,'Butterfly Meadow','eventov','Acrylic on canvas',40,40],
+  [194635,'Crosswinds, Algonquin Park','mainprize','Oil on canvas',40,30],
+  [194612,'Get in the Game','nemo','Mixed media on canvas',40,60]
+].map(([id,title,slug,medium,h,w]) => ({id,title,slug,medium,h,w}));
+
+const artistNames = {
+  'de-rose':'Tim De Rose', pasagic:'Emilija Pasagic', eventov:'Maya Eventov', braul:'Harold Braul',
+  mainprize:'Craig Mainprize', nemo:'Victor "Nemo" Colesnicenco'
+};
+const artistUrl = slug => `https://www.crescenthill.com/artists/${slug}/`;
+const esc = s => s.replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+/* Build the wall */
+const hang = document.getElementById('hang');
+hang.insertAdjacentHTML('beforeend', works.map((w,i) => `
+  <li data-artist="${w.slug}">
+    <button class="piece" style="--w:${w.w};--h:${w.h}" data-i="${i}" aria-label="${esc(w.title)} by ${esc(artistNames[w.slug])}, ${w.h} by ${w.w} inches. Open details.">
+      <img src="assets/art-${w.id}-sm.webp" alt="" loading="lazy" decoding="async">
+    </button>
+    <p class="label" aria-hidden="true"><em>${esc(w.title)}</em>${esc(artistNames[w.slug])}<br>${w.h} × ${w.w} in.</p>
+  </li>`).join(''));
+
+/* Artist filter */
+const chips = document.getElementById('chips');
+const count = document.getElementById('count');
+const wall = document.getElementById('wall');
+const filters = [['all','All artists'], ...Object.entries(artistNames)];
+chips.innerHTML = filters.map(([slug,name],i) => `<button class="chip" data-f="${slug}" aria-pressed="${i===0}">${esc(name)}</button>`).join('');
+function applyFilter(f){
+  let n = 0;
+  hang.querySelectorAll('li[data-artist]').forEach(li => { const show = f==='all' || li.dataset.artist===f; li.hidden = !show; if (show) n++; });
+  chips.querySelectorAll('.chip').forEach(c => c.setAttribute('aria-pressed', c.dataset.f===f));
+  count.textContent = `${n} ${n===1?'work':'works'}`;
+  wall.scrollTo({left:0, behavior:'smooth'});
+  watchEnds();
+}
+chips.addEventListener('click', e => { const c = e.target.closest('.chip'); if (c) applyFilter(c.dataset.f); });
+
+/* Arrows: enabled only when there is more wall in that direction */
+const prev = document.getElementById('prev'), next = document.getElementById('next');
+prev.onclick = () => wall.scrollBy({left:-wall.clientWidth*.7, behavior:'smooth'});
+next.onclick = () => wall.scrollBy({left: wall.clientWidth*.7, behavior:'smooth'});
+let endsObserver;
+function watchEnds(){
+  if (endsObserver) endsObserver.disconnect();
+  const items = [...hang.children].filter(li => !li.hidden);
+  const first = items[0], last = items[items.length-1];
+  endsObserver = new IntersectionObserver(entries => {
+    entries.forEach(en => { (en.target===first ? prev : next).disabled = en.intersectionRatio > .95; });
+  }, {root:wall, threshold:[0,.95,1]});
+  endsObserver.observe(first); endsObserver.observe(last);
+}
+applyFilter('all');
+
+/* Artwork details */
+const dlg = document.getElementById('work');
+const $ = id => document.getElementById(id);
+hang.addEventListener('click', e => {
+  const b = e.target.closest('.piece'); if (!b) return;
+  const w = works[b.dataset.i], name = artistNames[w.slug];
+  const cm = n => Math.round(n*2.54);
+  $('work-img').src = `assets/art-${w.id}.webp`;
+  $('work-img').alt = `${w.title} by ${name}`;
+  $('work-title').textContent = w.title;
+  $('work-artist').textContent = name;
+  $('work-artist').href = artistUrl(w.slug);
+  $('work-medium').textContent = w.medium;
+  $('work-size').textContent = `${w.h} × ${w.w} in. (${cm(w.h)} × ${cm(w.w)} cm)`;
+  $('work-id').textContent = w.id;
+  const ref = encodeURIComponent(`${w.title} by ${name} (ID ${w.id})`);
+  $('work-price').href = `mailto:info@crescenthill.com?subject=Pricing%20for%20${ref}`;
+  $('work-trial').href = `mailto:info@crescenthill.com?subject=In-home%20trial%20of%20${ref}`;
+  dlg.showModal();
+});
+$('work-close').onclick = () => dlg.close();
+dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
+
+/* Artists index, grouped by surname initial */
+const artists = `adamo|Pietro Adamo;al-obaidi|Dania Al-Obaidi;angel|Mario Angel;arnston|Carole Arnston;arrigo|Bob Arrigo;berens|Mark Berens;bergeron|Christian Bergeron;bingham|Meredith Bingham;boucher|Marie-Claude Boucher;braul|Harold Braul;brown|Hannah Brown;capolongo|Bruno Capolongo;cox|Cyril Cox;creber|Diane Creber;dalton|Liz Rae Dalton;de-rose|Tim De Rose;derooy|Adrian deRooy;domina|Kate Domina;doner|Kathryn Doner;eob|Nelson EOB;eventov|Maya Eventov;foers|Michael Foers;foti|Renato Foti;fransbergen|Estella Fransbergen;freitas|Miguel Freitas;gorg|Jurgen Gorg;granton|Brigitte Granton;gurevich|Eduard Gurevich;hallman|Terri Hallman;harrison|Gordon Harrison;hawksley|Beverley Hawksley;haynes|Heather Haynes;hicks|Jordan Hicks;hvidantzevich|Dimitri Hvidantzevich;iva|Maria Iva;kerwin|Tom Kerwin;khosravi|Davoud Khosravi;kirkland|Peter Kirkland;klimova|Julia Klimova;koulikov|Irina Koulikov;kovac|Mila Kovac;kraft-van-ermel|Annette Kraft van Ermel;kulig|Darlene Kulig;leclerc|Robert LeClerc;lightfoot|John Lightfoot;liu|Dennis Liu;lobo|Henri Lobo;lowden|Eleanor Lowden;lucie-boucher|Lucie Boucher;ma|Min Ma;mainprize|Craig Mainprize;mark|Cathy Mark;matheson|Tyler Matheson;mcfadden|Tim McFadden;miller|Tiffany Miller;munn|Lee Munn;nemo|Victor "Nemo" Colesnicenco;olsen-kent|Leah Olsen-Kent;olszowka|Anna Olszowka;ostlund|Leif Ostlund;pallafray|Philippe Pallafray;panov|Peter Panov;pasagic|Emilija Pasagic;petkov|Joro Petkov;philpott|Mary Philpott;poirier|Michel Poirier;porter|Brian Porter;rare-earth|Rare Earth Collective;ring|Paige Ring;ruben|Ruben Fasani;saunders|Bill Saunders;schwartz|Mishel Schwartz;st-amant|Daniel St-Amant;thai|David Thai;tkachenko|Victor Tkachenko;tracy|Steve Tracy;vladan|Vladan Ignatovic;willemsma|Judy Willemsma;wright|Monika Wright;yang|Pei Yang`
+  .split(';').map(s => { const [slug,name] = s.split('|'); return {slug,name}; });
+const inShow = new Set(['de-rose','ostlund','eventov','munn','boucher','braul','adamo','pasagic','bingham','nemo','gurevich','capolongo']);
+/* Filed by surname; the three names where the last word isn't the filing name are spelled out. */
+const fileAs = {'de-rose':'De Rose', 'kraft-van-ermel':'Kraft van Ermel', 'rare-earth':'Rare Earth Collective'};
+artists.forEach(a => a.key = fileAs[a.slug] || a.name.split(' ').pop());
+artists.sort((a,b) => a.key.localeCompare(b.key, 'en', {sensitivity:'base'}));
+const groups = {};
+artists.forEach(a => { const L = a.key[0].toUpperCase(); (groups[L] ||= []).push(a); });
+document.getElementById('index').innerHTML = Object.entries(groups).map(([L,list]) => `
+  <div class="group"><span class="letter" aria-hidden="true">${L}</span><ul>${list.map(a =>
+    `<li><a href="${artistUrl(a.slug)}" data-slug="${a.slug}"${inShow.has(a.slug)?' class="showing"':''}>${esc(a.name)}</a></li>`).join('')}</ul></div>`).join('');
+
+/* Hover preview of an artist's work, for mouse users only */
+const peek = document.getElementById('peek');
+if (matchMedia('(hover: hover) and (pointer: fine)').matches) {
+  const index = document.getElementById('index');
+  let x = 0, y = 0, raf = 0;
+  const place = () => { peek.style.transform = `translate3d(${x + 24}px, ${y - 100}px, 0)`; raf = 0; };
+  index.addEventListener('pointermove', e => { x = e.clientX; y = e.clientY; if (!raf) raf = requestAnimationFrame(place); });
+  index.addEventListener('pointerover', e => {
+    const a = e.target.closest('a[data-slug]');
+    if (!a) return;
+    peek.src = `assets/thumb-${a.dataset.slug}.webp`;
+    peek.classList.add('on');
+  });
+  index.addEventListener('pointerout', e => { if (!e.relatedTarget || !e.relatedTarget.closest || !e.relatedTarget.closest('a[data-slug]')) peek.classList.remove('on'); });
+}
+
+/* Open or closed right now, in Mississauga time.
+   ponytail: knows the posted holiday closures only; add Ontario stat dates if the gallery wants them reflected live. */
+(function status(){
+  const parts = Object.fromEntries(new Intl.DateTimeFormat('en-CA', {timeZone:'America/Toronto', weekday:'short', month:'2-digit', day:'2-digit', hour:'2-digit', minute:'2-digit', hour12:false})
+    .formatToParts(new Date()).map(p => [p.type, p.value]));
+  const dayIdx = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].indexOf(parts.weekday);
+  const mins = (+parts.hour % 24) * 60 + +parts.minute;
+  const closedDates = ['12-24','12-25','12-26','12-31','01-01'];
+  const hoursFor = (d, md) => (closedDates.includes(md) || d === 0) ? null : d === 6 ? [600, 1020] : [600, 1080];
+  const fmt = m => `${m/60 > 12 ? m/60 - 12 : m/60}${m/60 >= 12 ? 'pm' : 'am'}`;
+  const el = document.getElementById('status');
+  const today = hoursFor(dayIdx, `${parts.month}-${parts.day}`);
+  document.querySelectorAll('#hours [data-days]').forEach(n => { if (n.dataset.days.split(',').includes(String(dayIdx))) n.classList.add('today'); });
+  if (today && mins >= today[0] && mins < today[1]) { el.textContent = `Open now, until ${fmt(today[1])}`; el.classList.add('open'); return; }
+  if (today && mins < today[0]) { el.textContent = `Opens today at ${fmt(today[0])}`; return; }
+  const names = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  const base = new Date();
+  for (let i = 1; i < 8; i++) {
+    const d = new Date(base.getTime() + i*864e5);
+    const p = Object.fromEntries(new Intl.DateTimeFormat('en-CA', {timeZone:'America/Toronto', weekday:'short', month:'2-digit', day:'2-digit'}).formatToParts(d).map(q => [q.type, q.value]));
+    const di = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].indexOf(p.weekday);
+    const h = hoursFor(di, `${p.month}-${p.day}`);
+    if (h) { el.textContent = `Closed now. Opens ${i===1 ? 'tomorrow' : names[di]} at ${fmt(h[0])}`; return; }
+  }
+})();
+
+/* Mailing list: hands the request to the visitor's email app, so nothing is lost before a real list provider is connected. */
+document.getElementById('signup').addEventListener('submit', e => {
+  e.preventDefault();
+  const email = $('email'), msg = $('form-msg'), name = $('fname').value.trim();
+  const ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim());
+  email.setAttribute('aria-invalid', !ok);
+  msg.className = 'form-msg' + (ok ? '' : ' err');
+  if (!ok) { msg.textContent = 'Enter an email address like name@example.com.'; email.focus(); return; }
+  const body = encodeURIComponent(`Please add me to the mailing list.\n\nName: ${name}\nEmail: ${email.value.trim()}`);
+  location.href = `mailto:info@crescenthill.com?subject=Mailing%20list&body=${body}`;
+  msg.textContent = 'Your email app should open with the request ready to send.';
+});
+
+/* Mobile menu */
+const menuBtn = document.querySelector('.menu-btn'), nav = document.getElementById('nav');
+menuBtn.addEventListener('click', () => {
+  const open = nav.classList.toggle('open');
+  menuBtn.setAttribute('aria-expanded', open);
+  menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  menuBtn.innerHTML = `<i class="ph-light ${open ? 'ph-x' : 'ph-list'}" aria-hidden="true"></i>`;
+});
+nav.addEventListener('click', e => { if (e.target.closest('a')) { nav.classList.remove('open'); menuBtn.setAttribute('aria-expanded', false); menuBtn.innerHTML = '<i class="ph-light ph-list" aria-hidden="true"></i>'; } });
+
+/* Header hairline once the page moves, and gentle reveals: IntersectionObserver only */
+const header = document.getElementById('top');
+new IntersectionObserver(([en]) => header.classList.toggle('scrolled', !en.isIntersecting)).observe(document.querySelector('.hero-copy'));
+const io = new IntersectionObserver(entries => entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } }), {rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+/* Current section in the nav */
+const links = [...document.querySelectorAll('.nav ul a')];
+const navIo = new IntersectionObserver(entries => entries.forEach(en => {
+  if (en.isIntersecting) links.forEach(a => a.setAttribute('aria-current', a.getAttribute('href') === '#' + en.target.id));
+}), {rootMargin:'-45% 0px -50% 0px'});
+['exhibition','new-work','artists','services','visit'].forEach(id => navIo.observe(document.getElementById(id)));
+</script>
+</body>
+</html>
